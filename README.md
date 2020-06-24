@@ -3,7 +3,7 @@ These are a collection of inception and intiution to popular data structures cod
 
 Though I was comfortale with python and java, I chose to start these with C++. Here is why you should too !
 
-[![Made with C++](https://img.shields.io/badge/Made%20with%20-C%2B%2B%20-blue?style=for-the-badge&logo=C%2B%2B.svg)](https://www.python.org/)
+[![Made with C++](https://img.shields.io/badge/Made%20with%20-C%2B%2B%20-blue?style=for-the-badge&logo=C%2B%2B)](https://www.python.org/)
 
 ### Why should you learn DSA in C++ first?
 - Start with C++, you’ll have a grip on the basics of every other programming language.

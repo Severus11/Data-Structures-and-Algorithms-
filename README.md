@@ -3,15 +3,22 @@ These are a collection of inception and intiution to popular data structures cod
 
 Though I was comfortale with python and java, I chose to start these with C++. Here is why you should too !
 
+[![Made with C++](https://img.shields.io/badge/Made%20with%20-C%2B%2B%20-blue?style=for-the-badge&logo=C%2B%2B.svg)](https://www.python.org/)
+
 ### Why should you learn DSA in C++ first?
 - Start with C++, you’ll have a grip on the basics of every other programming language.
 - C/C++ are often termed as the mother of programming languages, DSA in them gives better intuition to each concept and algorithm.
 - While implementation in python could be shorter in length and easier to program, C/C++ give you a better insight in structure of programming, hence one can easily visualize what exactly is being programmed.
 
-### Which IDE could you use ?
+### Which IDEs could you use ?
 C/C++ languages compile using GCC/ G++ compilers, various versions of which are available online. The following IDEs are popularly used to program in C/C++:
 - Code Blocks
 - Turbo C++
 - DEV C & DEV C++
 - Visual Studio Code
 - CLion (1 month free trail)
+
+### Author
+ [![LinkedIn-profile](https://img.shields.io/badge/LinkedIn-Parthsarthi-blue.svg)](https://www.linkedin.com/in/parthsarthi-gupta-265b9816a)
+
+- Parthsarthi Gupta

@@ -16,7 +16,7 @@ C/C++ languages compile using GCC/ G++ compilers, various versions of which are 
 - Turbo C++
 - DEV C & DEV C++
 - Visual Studio Code
-- CLion (1 month free trail)
+- CLion (free with University Mail id)
 
 ### Author
  [![LinkedIn-profile](https://img.shields.io/badge/LinkedIn-Parthsarthi-blue.svg)](https://www.linkedin.com/in/parthsarthi-gupta-265b9816a)

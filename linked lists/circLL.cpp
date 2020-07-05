@@ -74,14 +74,15 @@ void insert(struct Node *p, int index, int x)
     }
     else
     {
-        for(int i=0; i<index; i++)
+        for(int i=0; i<index-1; i++)
         {
             p=p->next;
-            t= new Node;
-            t->data =x;
-            t->next =p->next;
-            p->next =t;
         }
+        t= new Node;
+        t->data =x;
+        t->next =p->next;           
+        p->next =t;
+        
     }
     
 }
@@ -133,6 +134,14 @@ int main()
     create(arr, 5);
     cout<<endl;
     cout<< length(head);
+    cout<<endl;
+    display(head);
+    cout<<endl;
+    insert(head,4,29); //insert(head,5,69);
+    cout<<endl;
+    display(head);
+    cout<<endl;
+    del(head,2);
     cout<<endl;
     display(head);
     return 0;

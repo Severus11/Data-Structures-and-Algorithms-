@@ -72,6 +72,36 @@ void level_order(Node* root, int i)
 		i++;
 	}
 }
+
+int number_of_node(struct Node *p)
+{
+	if(p!=0)
+	{
+		return number_of_node(p->left) + number_of_node(p->right) +1;
+	}
+	return 0;
+}
+
+int height(struct Node *root)
+{
+	int x,y;
+	if(root==0)
+	{
+		return 0;
+	}
+	
+	x= height(root->left);
+	y= height(root->right);	
+
+	if(x>y)
+	{
+		return x+1;
+	}
+	else
+	{
+		return y+1;
+	}
+}
 int main()
 {
     int arr[] = {1,2,3,4,5,6,7,8,9};
@@ -89,6 +119,7 @@ int main()
 	cout<<"\n"<<"level-Order Traversal of the tree is:"<<endl;
 	level_order(root, 0);
 	cout<<"\n";
+	cout<<"height and number of nodes of this tree are: "<<height(root)<<" "<<number_of_node(root);
     return 0;
 }
 

@@ -102,10 +102,39 @@ int height(struct Node *root)
 		return y+1;
 	}
 }
+int leaf(struct Node* root)
+{
+	int x=0;
+	int y =0;
+	if(root!=0)
+	{
+		x= leaf(root->left);
+		y= leaf(root->right);
+
+		if(root->left ==NULL && root->right==NULL)
+		{
+			return x+y+1;
+		}
+		else
+		{
+			return x+y;
+		}		
+	}
+	return 0;
+}
+
 int main()
 {
-    int arr[] = {1,2,3,4,5,6,7,8,9};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int n, x;
+	cout<<"enter number of nodes in the tree:";
+	cin>>n;
+	int arr[n];
+	cout<<"enter the nodes of the tree from left to right(level order):";
+	for(int i=0; i<n ; i++)
+	{
+		cin>>arr[i];
+	}
+
     Node * root= ins(arr, root, 0, n);
     cout<<"Pre-Order Traversal of the tree is:"<<endl;
 	pre_order(root);
@@ -120,7 +149,9 @@ int main()
 	level_order(root, 0);
 	cout<<"\n";
 	cout<<"height and number of nodes of this tree are: "<<height(root)<<" "<<number_of_node(root);
-    return 0;
+    cout<<"\n";
+	cout<<"\n"<<"number of leaf nodes of the tree are: "<<leaf(root)<<endl;
+	return 0;
 }
 
 

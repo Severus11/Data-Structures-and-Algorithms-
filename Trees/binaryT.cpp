@@ -1,25 +1,24 @@
+#include<bits/stdc++.h>
 
-#include <bits/stdc++.h> 
-using namespace std; 
+using namespace std;
 
+struct Node
+{
+    int data;
+    struct Node *left;
+    struct Node *right;
 
-struct Node 
-{ 
-	int data; 
-	Node* left, * right; 
-}; 
+};
 
+Node * newNode(int x)
+{
+    Node *p = new Node;
+    p->left =p->right = NULL;
+    p->data =x;
+    return(p);
 
-Node* newNode(int data) 
-{ 
-	Node* node = (Node*)malloc(sizeof(Node)); 
-	node->data = data; 
-	node->left = node->right = NULL; 
-	return (node); 
-} 
-
-
-Node* insertLevelOrder(int arr[], Node* root, int i, int n) 
+}
+Node* ins(int arr[], Node* root, int i, int n) 
 { 
 	
 	if (i < n) 
@@ -28,33 +27,57 @@ Node* insertLevelOrder(int arr[], Node* root, int i, int n)
 		root = temp; 
 
 		 
-		root->left = insertLevelOrder(arr, 
-				root->left, 2 * i + 1, n); 
-
-		
-		root->right = insertLevelOrder(arr, 
-				root->right, 2 * i + 2, n); 
+		root->left = ins(arr, root->left, 2 * i + 1, n); 
+		root->right = ins(arr,root->right, 2 * i + 2, n); 
 	} 
 	return root; 
 } 
+ 
 
-
-void inOrder(Node* root) 
+void in_order(Node* root) 
 { 
 	if (root != NULL) 
 	{ 
-		inOrder(root->left); 
+		in_order(root->left); 
 		cout << root->data <<" "; 
-		inOrder(root->right); 
+		in_order(root->right); 
 	} 
 } 
+void pre_order(Node * root)
+{
+  if(root!=NULL)
+    {
+        cout<<root->data<<" ";
+        pre_order(root->left);
+        pre_order(root->right);
 
-int main() 
-{ 
-	int arr[] = { 1, 2, 3, 4, 5, 6, 6, 6, 6 }; 
-	int n = sizeof(arr)/sizeof(arr[0]); 
-	Node* root = insertLevelOrder(arr, root, 0, n); 
-	inOrder(root); 
-} 
+    }
+}
+void post_order(Node *root)
+{
+    if(root!=0)
+    {
+        post_order(root->left);
+        post_order(root->right);
+        cout<<root->data<<" ";
+    }
+}
+
+int main()
+{
+    int arr[] = {1,2,3,4,5,6,7,8,9};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    Node * root= ins(arr, root, 0, n);
+    pre_order(root);
+    cout<<"\n";
+    post_order(root);
+    cout<<"\n";
+    in_order(root);
+    cout<<"\n";
+
+    return 0;
+}
+
+
 
 

@@ -1,68 +1,83 @@
-#include<iostream>
 
+#include<iostream> 
 using namespace std;
+struct node 
+{ 
+	int key; 
+	struct node *left, *right; 
+}; 
 
-struct Node
-{
-    int data;
-    struct Node * right, *left;
-};
+struct node *newNode(int item) 
+{ 
+	struct node *temp = (struct node *)malloc(sizeof(struct node)); 
+	temp->key = item; 
+	temp->left = temp->right = NULL; 
+	return temp; 
+} 
 
-struct Node * newNode(int x)
-{
-    struct Node *p = new Node;
-    p->left =p->right = NULL;
-    p->data =x;
-    return(p);
-
+void inorder(struct node *root) 
+{ 
+	if (root != NULL) 
+	{ 
+		inorder(root->left); 
+		cout<<root->key<<" "; 
+		inorder(root->right); 
+	} 
 }
-void level_order(struct Node* root,int i)
+struct node* insert(struct node* node, int key) 
+{ 
+	
+	if (node == NULL) return newNode(key); 
+
+	
+	if (key < node->key) 
+		node->left = insert(node->left, key); 
+	else if (key > node->key) 
+		node->right = insert(node->right, key); 
+
+	return node; 
+} 
+node* searchN(node* root, int key)
 {
-    if (root !=0)
+    if(root==NULL || root->key ==key)
     {
-        cout<<root->data;
-        level_order(root->left, 2*i+1);
-        level_order(root->right, 2*i+2);
-        i++;
+        return root;
     }
-}
-
-void inorder(struct Node* root)
-{
-    if(root!=NULL)
+    else if (key>root->key)
     {
-        inorder(root->left);
-        cout<<root->data<<" ";
-        inorder(root->right);
+        return searchN(root->right, key);
     }
+    return searchN(root->left, key);
 }
-struct Node* insert(struct Node* root, int x)
-{
-    if(root==NULL) 
-        return newNode(x);
+ 
+int main() 
+{ 
+	
+	struct node *root = NULL;
+	int y;
+    cout<<"enter the root node data: ";
+    cin>>y;
+    cout<<"enter the next nodes:";
+	root= insert(root, y);
+    int x,k;
 
-    if(x<root->data);
-    {
-        root->left= insert(root->left,x);
-    }
-    if (x>root->data)
-    {
-        root->right = insert(root->right,x);
-    }
-    return root;
-}
-int main()
-{
-    //int arr[]= {50,30,20,40,70,60,80};
-    Node* root = NULL; 
-    root = insert(root, 50);
-    insert(root, 30);
-    insert(root, 20);
-    insert(root, 40);
-    insert(root, 70);
-    insert(root, 60);
-    insert(root, 80);
+    for(int i=1;i<6;i++) {
+        cin>> x;
+        insert(root, x);
+    }    
+    /*
+    insert(root, 20); 
+	insert(root, 40); 
+	insert(root, 70); 
+	insert(root, 60); 
+	insert(root, 80);*/ 
+    cout<<"the inodrder traversal of this bst is :";
+	inorder(root);
+    cout<<endl;
+    cout<<"enter the key needed to be searched: " ;
+    cin>>k;
+    node* sNode= searchN(root, k);
+    cout<<k<<" found at "<<sNode;
 
-    inorder(root);
-    return 0;
-}
+	return 0; 
+} 

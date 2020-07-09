@@ -49,6 +49,43 @@ node* searchN(node* root, int key)
     }
     return searchN(root->left, key);
 }
+struct node * minValueNode(struct node* node) 
+{ 
+    struct node* current = node; 
+    while (current && current->left != NULL) 
+        current = current->left; 
+  
+    return current; 
+} 
+  
+struct node* deleteNode(struct node* root, int key) 
+{ 
+    // base case 
+    if (root == NULL) return root; 
+    if (key < root->key) 
+        root->left = deleteNode(root->left, key); 
+    else if (key > root->key) 
+        root->right = deleteNode(root->right, key); 
+    else
+    { 
+        if (root->left == NULL) 
+        { 
+            struct node *temp = root->right; 
+            free(root); 
+            return temp; 
+        } 
+        else if (root->right == NULL) 
+        { 
+            struct node *temp = root->left; 
+            free(root); 
+            return temp; 
+        } 
+        struct node* temp = minValueNode(root->right); 
+        root->key = temp->key; 
+        root->right = deleteNode(root->right, temp->key); 
+    } 
+    return root; 
+} 
  
 int main() 
 { 
@@ -77,7 +114,9 @@ int main()
     cout<<"enter the key needed to be searched: " ;
     cin>>k;
     node* sNode= searchN(root, k);
-    cout<<k<<" found at "<<sNode;
+    cout<<k<<" found at "<<sNode<<endl;
+    root = deleteNode(root,60);
+    inorder(root);
 
 	return 0; 
 } 

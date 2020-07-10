@@ -18,4 +18,5 @@ int main()
     cout<<"enter the number: "; 
     cin>>n;
     cout<<fib(n);
+    return 0;
 }

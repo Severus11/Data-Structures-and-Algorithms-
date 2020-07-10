@@ -1,8 +1,9 @@
 //longest common subsequence
 //naive recursive algorithm
 #include<bits/stdc++.h>
-#include<queue>
-queue<string>q;
+
+using namespace std;
+vector<char>q;
 int max(int a,int b)
 {
     if(a>b) return a;
@@ -10,15 +11,16 @@ int max(int a,int b)
     
 }
 
-using namespace std;
-int lcs(string x, string y, int m, int n)
+
+int lcs(char* x, char* y, int m, int n)
 {
+    int i=1;
     if(m==0 ||n==0) return 0;
     else
     {
         if(x[m-1]= y[n-1])
         {
-            q.push(x[m-1]);
+            
             return lcs(x,y, m-1, n-1) +1;
         }
         else
@@ -27,15 +29,22 @@ int lcs(string x, string y, int m, int n)
         }
     }
 }
-
+void disp(vector<char>q)
+{
+    for(int i=0; i<q.size();i++)
+    {
+        cout<<q[i]<<" ";
+    }
+}
 
 int main()
 {
-    string s = "werty";
-    string t = "qety";
-    int m= s.size();
-    int n = t.size();
+    char s[] = "werty";
+    char t[] = "qety";
+    int m= strlen(s);
+    int n = strlen(t);
 
-    cout<<lcs(s,t,m,n);
+    cout<<lcs(s,t,m,n)<<endl;
+    //disp(q);
     return 0 ;
 }

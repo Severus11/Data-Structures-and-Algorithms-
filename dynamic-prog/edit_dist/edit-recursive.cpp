@@ -14,41 +14,31 @@ int Min(int a, int b, int c)
 
 int editDis(string s1, string s2, int m, int  n)
 {
-    int dp[m+1][n+1];
-    for(int i=0; i<=m; i++)
-    {
-        for(int j=0; j<=n; j++)
-        {
-            if (i==0)
-            {
-                dp[i][j]= j;
-            }
-            else if(j==0)
-            {
-                dp[i][j]= i;
-            }
-            else if (s1[i-1]== s2[j-1])
-            {
-                dp[i][j] = dp[i-1][j-1];
-            }
-            else
-            {
-                dp[i][j]= 1+ Min(dp[i-1][j],dp[i][j-1], dp[i-1][j-1]);
-            }     
-        }
-    }
-    return dp[m][n];
+  if(m==0) return n;
+  else if(n==0) return m;
+
+  else if(s1[m-1]== s2[n-1])
+  {
+    return editDis(s1,s2,m-1,n-1); 
+  }
+  else
+  {
+    return 1+ Min(editDis(s1,s2,m-1,n-1), editDis(s1,s2,m,n-1),
+    editDis(s1,s2,m-1,n));
+  }
+  
+  
 }
 int main()
 {
-    string s1 = "sunday";
-    string s2 = "saturday";
+    string s1 = "cart";
+    string s2 = "march";
     int m = s1.size();
     int n= s2.size();
     /*cout<<"enter initial string: "<<endl;
     cin>>s1;
     cout<<"enter final string: "<<endl;
     cin>>s2;*/
-    cout<<"Minimum number of operations needed are: "<<editDis(s1,s2,m,n)<<endl;
+    cout<<"Minimum number of operations needed are: "<<editDis(s1,s2,4,5)<<endl;
     return 0;
 }

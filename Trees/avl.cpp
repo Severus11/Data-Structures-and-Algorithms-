@@ -61,6 +61,43 @@ Node* LRRot(struct Node * p)
     }
     return plr;
 }
+Node* RLRot(struct Node * p)
+{
+    struct Node * pr= p->right;
+    struct Node * prl= pr->left;
+
+    pr->left =prl->right;
+    p->right = prl->left;
+
+    prl->left = p;
+    prl->right = pr;
+
+    p->height= nodeHeight(p);
+    pr->height = nodeHeight(pr);
+    prl->height= nodeHeight(prl);
+
+    if(p==root)
+    {
+        root = prl;
+    }
+    return prl;
+}
+Node* RRRot(struct Node * p)
+{
+    struct Node * pr= p->right;
+    struct Node * prl = p->right->left;
+
+    pr->left = p;
+    p->right = prl;
+
+    p->height= nodeHeight(p);
+    pr->height= nodeHeight(pr);
+    if(p==root)
+        root =pr;
+    
+    return pr;
+}
+
 Node* avlInsert(struct Node * p , int key)
 {
     struct Node * t;

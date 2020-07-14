@@ -123,10 +123,36 @@ Node* avlInsert(struct Node * p , int key)
         return LLRot(p);
     else if(nodeBalance(p)==2 && nodeBalance(p->left)==-1)
         return LRRot(p);
-    else if(nodeBalance(p)==-2 && nodeBalance(p->right==1)
+    else if(nodeBalance(p)==-2 && nodeBalance(p->right==1))
         return RLRot(p);
     else
         return RRRot(p);
 
     return p;
+}
+void pre_order(Node * root)
+{
+  if(root!=NULL)
+    {
+        cout<<root->data<<" ";
+        pre_order(root->left);
+        pre_order(root->right);
+
+    }
+}
+int main()
+{
+    int n, x;
+	cout<<"enter number of nodes in the tree:";
+	cin>>n;
+	int arr[n];
+	cout<<"enter the nodes of the tree from left to right(level order):";
+	for(int i=0; i<n ; i++)
+	{
+		cin>>arr[i];
+	}
+    Node * root= avlInsert(arr, root, 0, n);
+    cout<<"Pre-Order Traversal of the tree is:"<<endl;
+	pre_order(root);
+
 }

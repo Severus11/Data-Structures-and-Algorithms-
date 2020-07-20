@@ -5,8 +5,7 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-
-vector<vector<int>>matrix= {{0}}; 
+int arr[5][5];
 
 void addedge(vector<int> adj[], int u, int v)
 {
@@ -16,17 +15,7 @@ void addedge(vector<int> adj[], int u, int v)
 
 void adjmat(int i, int j)
 {
-    matrix[i][j] =1;
-}
-void print(vector<vector<int>>matrix)
-{
-    for (int i=0 ;i <matrix.size(); i++)
-    {
-        for (int j=0; j< matrix[i].size(); j++)
-        {
-            cout<<matrix[i][j]<<" ";
-        }
-    }
+    arr[i][j] =1;
 }
 
 int main()
@@ -34,12 +23,22 @@ int main()
     int n, x,y;
     cout<<"Enter number of Nodes :";
     cin>>n;
+    //int arr[n][n];
 
     while(x != 9 && y!=9)
     {
         cin>>x>>y;
         adjmat(x,y);
     }
-    print(matrix);
+    //print(arr);
+
+    for(int i=0 ;i<5; i++)
+    {
+        for(int j=0 ;j<5; j++)
+        {
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
     return 0;
 }

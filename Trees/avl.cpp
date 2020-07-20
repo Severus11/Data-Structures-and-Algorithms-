@@ -142,17 +142,17 @@ void pre_order(Node * root)
 }
 int main()
 {
-    int n, x;
-	cout<<"enter number of nodes in the tree:";
-	cin>>n;
-	int arr[n];
-	cout<<"enter the nodes of the tree from left to right(level order):";
-	for(int i=0; i<n ; i++)
-	{
-		cin>>arr[i];
-	}
-    Node * root= avlInsert(arr, root, 0, n);
-    cout<<"Pre-Order Traversal of the tree is:"<<endl;
-	pre_order(root);
+    struct node *root = NULL;
+	int y;
+    cout<<"enter the root node data: ";
+    cin>>y;
+    cout<<"enter the next nodes:";
+	root= avlInsert(root, y);
+    int x,k;
 
+    for(int i=1;i<6;i++) {
+        cin>> x;
+        avlInsert(root, x);
+    } 
+    return 0;
 }

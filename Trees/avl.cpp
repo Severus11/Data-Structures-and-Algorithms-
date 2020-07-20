@@ -142,7 +142,7 @@ void pre_order(Node * root)
 }
 int main()
 {
-    struct node *root = NULL;
+    struct Node *root = NULL;
 	int y;
     cout<<"enter the root node data: ";
     cin>>y;

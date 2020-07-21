@@ -5,8 +5,7 @@
 #include<iostream>
 #include<bits/stdc++.h>
 
-queue<int>q;
-stack<int>st;
+
 
 using namespace std;
 int arr[5][5];
@@ -26,24 +25,25 @@ void print(int arr[][5])
         cout<<endl; 
     }
 }
-void BFS(int arr[][5], int start, int n)
+void BFS(int arr[][4], int start, int n)
 {
+    queue<int>q1;
     int i= start; 
     int visited[n]={0};
     cout<<i<<" ";
     visited[i] =1;
-    q.push(i);
+    q1.push(i);
     
-    while(!q.empty())
+    while(!q1.empty())
     {
-        i = q.pop();
+        q1.pop();
         for(int j=0; j<n; j++)
         {
             if (arr[i][j]==1 && visited[j] ==0)
             {
                 visited[j] =1;
                 cout<<j<<" ";
-                q.push(j);
+                q1.push(j);
             }
         }
     }
@@ -51,20 +51,14 @@ void BFS(int arr[][5], int start, int n)
 void DFS(int arr[][5], int start, int n)
 {
     static int visited[5]= {0};
-    int i = start;
-    cout<<start<<" ";
-    st.push(i);
-
-    while(! st.empty())
+    if(visited[start]==0)
     {
-        st.pop();
-        for(int j=0; j<n ;j++)
+        cout<<start<<" ";
+        for(int j =0; j<n; j ++)
         {
-            if(arr[i][j]==1 && visited[j] ==0)
+            if(visited[j]==0 && arr[start][j]==1)
             {
-                visited[j] =1;
-                cout<<j<<" ";
-                st.push(j);
+                DFS(arr, j,n);
             }
         }
     }

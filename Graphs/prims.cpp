@@ -20,7 +20,7 @@ void init(int arr[][7])
 void cost_adj_mat(int i, int j, int c)
 {
     arr[i][j]= c;
-    arr[j][i]= c;
+    //arr[j][i]= c;
 }
 void print(int arr[][7])
 {

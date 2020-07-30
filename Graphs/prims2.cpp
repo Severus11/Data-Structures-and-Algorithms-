@@ -3,7 +3,7 @@ using namespace std;
 int matrix[7][7];
 int q= INT_MAX;
 int near[7]={q,q,q,q,q,q,q};
-int t[2][5];
+int t[2][6];
 void addmat(int i , int j, int c)
 {
     matrix[i][j] = c;
@@ -20,7 +20,7 @@ void print(int matrix[][7])
     }
 }
 
-void prim(int matri[][7])
+void prim(int matrix[][7])
 {
     int u, v, i , j;
     int minn=q;
@@ -63,15 +63,17 @@ void prim(int matri[][7])
         near[k] =0;
         for(j=1; j<7; j ++)
         {
-            if()near[j]
+            if(near[j]!= 0 && matrix[j][k]< matrix[j][near[j]])
+            near[j]=k;
         }
+    }
+    for(int i=0; i<6; i++)
+    {
+        cout<<t[0][i]<< ","<< t[1][i]<<endl;
     }
 }
 int main()
 {
-    for (int i=0; i<7; i++)
-    {
-        cout<<near[i]<<"   ";
-    }
+    prim(matrix);
     return 0;
 }

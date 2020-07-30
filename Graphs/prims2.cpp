@@ -1,9 +1,21 @@
 #include<bits/stdc++.h>
+# define I INT_MAX
 using namespace std;
-int matrix[7][7];
+int matrix[][7]= {{I,25, I , I, I, 5 , I},
+{25,I,12,I,I,I,10},{I,12,I,8,I,I,I}, {I,I,8,I,16,I,14}, {I,I,I,16,I,20,18}, {5,I,I,I,20,I,I}, {I,10,I,14,18,I,I}};
 int q= INT_MAX;
 int near[7]={q,q,q,q,q,q,q};
 int t[2][6];
+void init(int arr[][7])
+{
+    for(int i=0;i<7; i++)
+    {
+        for(int j=i; j<7; j++)
+        {
+            arr[i][j] = INT_MAX;
+        }
+    }
+}
 void addmat(int i , int j, int c)
 {
     matrix[i][j] = c;
@@ -36,7 +48,7 @@ void prim(int matrix[][7])
         }
     } 
     t[0][0] = u; t[1][0]= v;
-    near[u]= near [v] = 0;
+    near[u]= near[v] = 0;
 
     for(int i=0; i<7; i++)
     {
@@ -47,21 +59,22 @@ void prim(int matrix[][7])
         else near[i] = v;
     }
 
-    for(i=1; i<7; i++)
+    for(i=0; i<6; i++)
     {
         int minn =q;
         int k ;
-        for (j =1; j<7; j++) 
+        for (j =0; j<7; j++) 
         {
             if(near[j]!=0 && matrix[j][near[j]]<minn)
             {
-                minn = matrix[j][near[j]];
                 k=j;
+                minn = matrix[j][near[j]];
             }
         }
-        t[0][i] =k; t[i][1] = near[k];
+        t[0][i] =k; 
+        t[1][i] = near[k];
         near[k] =0;
-        for(j=1; j<7; j ++)
+        for(j=0; j<7; j ++)
         {
             if(near[j]!= 0 && matrix[j][k]< matrix[j][near[j]])
             near[j]=k;
@@ -74,6 +87,25 @@ void prim(int matrix[][7])
 }
 int main()
 {
+    /*int x,y, c,n;
+    cout<<"Enter number of nodes: "<<endl;
+    cin>>n;
+    cout<<"Enter the edges, followed by their cost"<<endl;
+    init(matrix);
+
+    while(x!=9 && y!=9 && c!=9)
+    {
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                cin>>x>>y>>c;
+                addmat(x,y,c);
+            }
+        }
+    }
+    print(matrix);*/
+    
     prim(matrix);
     return 0;
 }

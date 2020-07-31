@@ -66,6 +66,6 @@ int main()
     {
         cout<<arr[i]<<" ";
     }
-    cout<<endl<<"time complexity is: nlong  ;each to create heap and delete. Hence time complexity is O(nlogn)"
+    cout<<endl<<"time complexity is: nlong  ;each to create heap and delete. Hence time complexity is O(nlogn)";
     return 0;
 }

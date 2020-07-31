@@ -7,3 +7,4 @@
 - Height is always logn
 - not used for searching purpose
 - Only the root of the heap can be deleted. Hence, the largest in max heap and smallest in the min heap.
+- priority queue can be implement using max or min heap depending upon the priority set by the user.

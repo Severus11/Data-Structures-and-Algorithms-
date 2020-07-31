@@ -6,4 +6,4 @@
 - Heaps are generally represented using arrays
 - Height is always logn
 - not used for searching purpose
-
+- Only the root of the heap can be deleted. Hence, the largest in max heap and smallest in the min heap.

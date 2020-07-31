@@ -19,6 +19,10 @@ void createheap(int a[], int n)
         insert(a, i);
     }
 }
+void deleteHeap(int a[])
+{
+    
+}
 int main()
 {
     int arr[]= {0,10,20,30,25,5,40,35};

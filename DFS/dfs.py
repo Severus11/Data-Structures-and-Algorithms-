@@ -1,7 +1,7 @@
 # This is an DFS implementation for a 2D array in python 
 # The input will be a 2D array [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 # The output will be a 1D array.
-# The traversal will be in order : up right down left
+# The traversal will be in order : up right down left in one direction as soon as element is seen
 # The algorithm will be implemented recursively 
 
 
